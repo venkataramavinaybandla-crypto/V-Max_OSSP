@@ -11,6 +11,7 @@
 #include <unistd.h>
 #include <pwd.h>
 
+
 /* 1. System Information */
 void systemInformation()
 {
@@ -518,100 +519,6 @@ void memoryUsage()
 
         printf("\n========================================\n");
     }
-}
-
-/* 4. Disk Usage */
-void diskUsage()
-{
-    struct statvfs disk;
-
-    if (statvfs("/", &disk) != 0)
-    {
-        printf("Unable to read disk information.\n");
-        return;
-    }
-
-    /* Disk space calculations */
-    unsigned long long total =
-        (unsigned long long)disk.f_blocks *
-        disk.f_frsize;
-
-    unsigned long long freeSpace =
-        (unsigned long long)disk.f_bfree *
-        disk.f_frsize;
-
-    unsigned long long used =
-        total - freeSpace;
-
-    double diskPercentage =
-        ((double)used / total) * 100.0;
-
-    /* Inode calculations */
-    unsigned long long totalInodes =
-        (unsigned long long)disk.f_files;
-
-    unsigned long long freeInodes =
-        (unsigned long long)disk.f_ffree;
-
-    unsigned long long usedInodes =
-        totalInodes - freeInodes;
-
-    double inodePercentage = 0.0;
-
-    if (totalInodes > 0)
-    {
-        inodePercentage =
-            ((double)usedInodes / totalInodes) * 100.0;
-    }
-
-    printf("\n========================================\n");
-    printf("           DISK INFORMATION\n");
-    printf("========================================\n");
-
-    printf("\n---------- DISK SPACE ----------\n");
-
-    printf("Total Disk Space : %.2f GB\n",
-           total / (1024.0 * 1024.0 * 1024.0));
-
-    printf("Used Disk Space  : %.2f GB\n",
-           used / (1024.0 * 1024.0 * 1024.0));
-
-    printf("Free Disk Space  : %.2f GB\n",
-           freeSpace / (1024.0 * 1024.0 * 1024.0));
-
-    printf("Disk Usage       : %.2f%%\n",
-           diskPercentage);
-
-    printf("\n---------- DISK STATUS ----------\n");
-
-    if (diskPercentage < 70.0)
-    {
-        printf("Status           : NORMAL\n");
-    }
-    else if (diskPercentage <= 85.0)
-    {
-        printf("Status           : MODERATE\n");
-    }
-    else
-    {
-        printf("Status           : HIGH\n");
-    }
-
-    printf("\n---------- INODE INFORMATION ----------\n");
-
-    printf("Total Inodes     : %llu\n",
-           totalInodes);
-
-    printf("Used Inodes      : %llu\n",
-           usedInodes);
-
-    printf("Free Inodes      : %llu\n",
-           freeInodes);
-
-    printf("Inode Usage      : %.2f%%\n",
-           inodePercentage);
-
-    printf("\n========================================\n");
 }
 
 typedef struct
