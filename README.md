@@ -144,8 +144,4 @@ The goal: prove that a monitoring tool can be built from first principles by und
 
 <div align="center">
 
-**Built with C, caffeine, and an unreasonable amount of `/proc` reading.**
-
-⭐ **Star the repo if ForgeOS made your terminal cooler.** ⭐
-
 </div>
