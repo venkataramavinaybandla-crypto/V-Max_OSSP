@@ -126,23 +126,19 @@ The goal: prove that a monitoring tool can be built from first principles by und
 
 ---
 
-## 👥 Team V-Max
+## 👥 Team Member
 
 | Name | Role |
 |---|---|
 | **Bandla Venkata Rama Vinay** | Disk monitoring · Testing · Documentation |
-| _Teammate 2_ | _Module / role_ |
-| _Teammate 3_ | _Module / role_ |
-| _Teammate 4_ | _Module / role_ |
-
 ---
 
 ## 🛣️ Roadmap
 
-- [ ] Per-core CPU breakdown
-- [ ] Network interface statistics
-- [ ] Sortable process list (by CPU / memory)
-- [ ] Export snapshots to a log file
+- [✅] Per-core CPU breakdown
+- [✅] Network interface statistics
+- [✅] Sortable process list (by CPU / memory)
+- [✅] Export snapshots to a log file
 
 ---
 
